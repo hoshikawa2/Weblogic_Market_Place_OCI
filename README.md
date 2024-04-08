@@ -197,6 +197,7 @@ Also configure thresholds to automate autoscaling.
 There is the possibility of working with shared storage, which is very important when it comes to creating a Weblogic cluster for high availability.
 To do this, simply enable the "Add File System" option and configure the subnet's CIDR block to mount the target. Be careful to establish a CIDR block that does not overlap an existing one.
 
+
 ![img_19.png](img_19.png)
 
 ![img_25.png](img_25.png)
