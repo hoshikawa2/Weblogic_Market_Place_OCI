@@ -203,19 +203,46 @@ To do this, simply enable the "Add File System" option and configure the subnet'
 
 ### Configure a VCN
 
+Now you need to create where your **Weblogic** instance will operate. That means to configure the VCN and subnets. You selected to create a new **VCN**, so you can put here a name for your **VCN** and choose optionaly the **CIDR** block for the network. Subnets will be created automatically. Remember to check your compartment for your **VCN**.
+
 ![img_20.png](img_20.png)
 
 ### Domain Configuration
+
+Let's configure the **Weblogic** domain. Put the **Admin User Name**, default is weblogic.
+Select the compartment of your secret created previously and select the **weblogicadmin** secret.
+Select your **JDK** version and if you want, you can create a sample application, just select **Deploy Sample Application** option for this.
 
 ![img_38.png](img_38.png)
 
 ### Configure Weblogic Instances
 
+Here you can configure your cluster machines. Select your **OCI** compute shape, the **OCPUs** size and the number of **Nodes** for your cluster.
+You can configure the **CIDR** block for your servers subnet.
+
 ![img_22.png](img_22.png)
 
 ### Working with Bastion
 
+Bastion usually helps to mantain your **Weblogic** cluster secure, so you need to access the **Weblogic** admin through this **bastion** server. While bastion will be exposed over a public IP, your **Weblogic** machines will be maintained in a secure private subnet.
+
+Enable "Assign Reserved Public IP to Bastion Instance", configure the **CIDR** block for the subnet and choose the Bastion shape.
+
+Remember to use your private key configured previously to access your bastion in a **SSH** connection.
+
 ![img_23.png](img_23.png)
+
+Obtain the **Public IP** of your bastion in the **Compute** menu and in you bastion detail.
+
+An example to access your bastion is:
+
+    ssh -i <PrivateKey.pem>  opc@<Bastion Public IP> -L 7002:localhost:7002
+
+So you can stablish a tunnel for your Weblogic Admin Server.
+
+You can now access your admin server with your browser with:
+
+    https://localhost:7002/console
 
 ## Confirm the Stack creation
 
