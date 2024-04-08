@@ -81,6 +81,28 @@ Confirm if your 2 secrets were created
 
 ![img_41.png](img_41.png)
 
+### Create an Observability Application Performance Monitoring
+
+Use Oracle Cloud Infrastructure observability and management services to gain visibility and actionable insights that help you to manage your cloud environment.
+
+Oracle Cloud Infrastructure services related to observability and management let you monitor, audit, and alert to changes in your cloud environment. Insights driven by amachine learning help you to manage resources that are deployed on a variety of technology across all layers of the stack.
+
+A top priority is to increase automation that enables scalable, predictable results. Use integrated functionality and automation for DevOps monitoring and IT operations management to prevent and solve IT problems.
+
+You can use the **Application Performance Monitoring (APM**). Application Performance Monitoring provides deep visibility into applications performance and enables rapid diagnostics in order to deliver a consistent level of service. This includes the monitoring of the multiple components and application logic spread across clients, third-party services, and back-end computing tiers, on premises or on the cloud.
+
+Let's create an **APM** in the **OCI**. Open the Main Menu and select **Observability & Management** and the **Administration** option.
+
+![img_49.png](img_49.png)
+
+Select your compartment to create an **APM** domain and click in the **Create APM domain** button
+
+![img_50.png](img_50.png)
+
+Put a name for your **APM Domain**, confirm your compartment and click on **Create** button.
+
+![img_51.png](img_51.png)
+
 ### Create the Weblogic Clustered Instance
 
 Let's create your **Weblogic Cluster**. Go to the Main menu
@@ -152,7 +174,11 @@ You can integrate your **Weblogic Cluster** with IDCS. If you want to integrate 
 
 ### Observability
 
+If you want to integrate the **OCI Observability** with your **Webloigc Cluster**, enable this options:
+
 ![img_17.png](img_17.png)
+
+And select your **APM Domain** created previously in your compartment.
 
 ![img_39.png](img_39.png)
 
