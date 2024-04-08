@@ -184,18 +184,11 @@ And select your **APM Domain** created previously in your compartment.
 
 ### Auto Scaling
 
-The **Weblogic** stack available on **Oracle Cloud Market Place** allows the use of the automated mechanism for auto-scaling. This feature is available thanks to the use of **OCI functions** that are automatically implemented when creating the Weblogic stack.
-To activate this option, simply enable the "Autoscaling" option and configure the **OCI Registry** with your previously configured username and token.
-Also configure thresholds to automate autoscaling.
-
 ![img_18.png](img_18.png)
 
 ![img_42.png](img_42.png)
 
 ### File System - H.A.
-
-There is the possibility of working with shared storage, which is very important when it comes to creating a Weblogic cluster for high availability.
-To do this, simply enable the "Add File System" option and configure the subnet's CIDR block to mount the target. Be careful to establish a CIDR block that does not overlap an existing one.
 
 ![img_19.png](img_19.png)
 
