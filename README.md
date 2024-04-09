@@ -1,4 +1,4 @@
-# Weblogic OCI Market Place
+# Deploy an OCI Market Place Weblogic Cluster in High Availability Environment
 
 ## Introduction
 
