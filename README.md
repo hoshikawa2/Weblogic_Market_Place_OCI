@@ -6,7 +6,19 @@ In this material, we will show how to create an Oracle Weblogic cluster on Oracl
 
 Through the Market Place, we will have a Weblogic cluster operating in high availability, scalable and integrated with OCI's VCN network. In addition, we will activate OCI Observability where it will be possible to monitor and track the operating metrics of the Weblogic cluster.
 
-### Create an Object Storage to save your Terraform Script
+## Pre Requisites
+
+- Knowledge of **Weblogic** architecture, configuration and deployment
+- An **OCI** tenancy ready to use
+
+## Objectives
+
+With this material, you will:
+
+- Prepare and configure your **Weblogic Cluster** with Observability and Autoscaling
+- Create a **Terraform** script to use with your DevOps automation
+
+## Task 1 - Create an Object Storage to save your Terraform Script
 
 First of all, we need to create a bucket to store the **Terraform** script generated automatically in the **OCI Market Place**. Go to the Main Menu and click on Storage and Bucket options
 
@@ -20,7 +32,7 @@ Put a name for your Bucket. Put **Terraform_Scripts** as an example for this tut
 
 ![img_8.png](img_8.png)
 
-### Create a Secret
+## Task 2 - Create a Secret
 
 Now we need to create 2 secrets in the **OCI Vault**. For security reasons, the **OCI Vault** is a very good way to store passwords and certificates and the **Weblogic Cluster** will use:
 
@@ -81,7 +93,7 @@ Confirm if your 2 secrets were created
 
 ![img_41.png](img_41.png)
 
-### Create an Observability Application Performance Monitoring
+## Task 3 - Create an Observability Application Performance Monitoring
 
 Use Oracle Cloud Infrastructure observability and management services to gain visibility and actionable insights that help you to manage your cloud environment.
 
@@ -103,7 +115,7 @@ Put a name for your **APM Domain**, confirm your compartment and click on **Crea
 
 ![img_51.png](img_51.png)
 
-### Create the Weblogic Clustered Instance
+## Task 4 - Create the Weblogic Clustered Instance
 
 Let's create your **Weblogic Cluster**. Go to the Main menu
 
@@ -244,7 +256,7 @@ You can now access your admin server with your browser with:
 
     https://localhost:7002/console
 
-## Confirm the Stack creation
+## Task 5 - Confirm the Stack creation
 
 ![img_43.png](img_43.png)
 
@@ -252,7 +264,11 @@ You can now access your admin server with your browser with:
 
 ![img_45.png](img_45.png)
 
-## Reference
+## Acknowledgments
+
+- Author: Cristiano Hoshikawa (Oracle LAD A-Team Solution Engineer)
+
+## References
 
 - [Create a Non-JRF Instance Using Oracle WebLogic Server for OCI With New VCN](https://docs.oracle.com/en/cloud/paas/weblogic-cloud/wlcgs/index.html)
 - [Autoscaling Weblogic in OCI](https://blogs.oracle.com/weblogicserver/post/monitoring-and-autoscaling-oracle-weblogic-server-for-oci-stack-with-customized-domains)
