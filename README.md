@@ -256,6 +256,7 @@ You can now access your admin server with your browser with:
 
     https://localhost:7002/console
 
+
 ## Task 5 - Confirm the Stack creation
 
 ![img_43.png](img_43.png)
