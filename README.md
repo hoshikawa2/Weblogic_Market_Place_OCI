@@ -259,3 +259,4 @@ You can now access your admin server with your browser with:
 - [OCI APM Agent for Weblogic](https://docs.oracle.com/en-us/iaas/application-performance-monitoring/doc/deploy-apm-java-agent.html#GUID-081D2588-8A46-46CA-9297-3654002702D0)
 - [Install and Configure APM Java Agent On Oracle Weblogic Server](https://docs.oracle.com/en/cloud/paas/management-cloud/dmapm/install-and-configure-apm-java-agents-oracle-weblogic-server.html#GUID-05347698-5AED-4980-BBAC-0588BED98DDE)
 - [Push an Image to Oracle Cloud Infrastructure Registry](https://www.oracle.com/webfolder/technetwork/tutorials/obe/oci/registry/index.html)
+- [Working with Resource Manager](https://www.oracle.com/a/ocom/docs/cloud/resource-manager-100.pdf)
