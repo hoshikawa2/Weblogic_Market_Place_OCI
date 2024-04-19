@@ -139,7 +139,7 @@ Select the **Version** and compartment for your **Weblogic Cluster**, confirm th
 
 ![img_4.png](img_4.png)
 
-Click on **Use custom Terraform providers** option to generate your Terraform scripts. Select the compartment of your bucket previously created and your bucket name. 
+Click on **Use custom Terraform providers** option if you have a custom Terraform script and want to use it. Select the compartment of your bucket previously created and your bucket name. 
 
 ![img_9.png](img_9.png)
 
