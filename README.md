@@ -248,7 +248,9 @@ Obtain the **Public IP** of your bastion in the **Compute** menu and in you bast
 
 An example to access your bastion is:
 
-    ssh -i <PrivateKey.pem>  opc@<Bastion Public IP> -L 7002:localhost:7002
+    ssh -i <PrivateKey.pem>  opc@<Bastion Public IP> -L 7002:<your_admin_server_private_IP_address>:7002
+
+    Obtain your your_admin_server_private_IP_address in your Weblogic Resource Manager Stack detail page
 
 So you can stablish a tunnel for your Weblogic Admin Server.
 
