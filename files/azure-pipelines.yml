@@ -1,0 +1,59 @@
+pool:
+    vmImage: 'ubuntu-latest'
+
+variables:
+    buildConfiguration: 'Release'
+    imageName: 'oraclequote_azure:latest'
+
+steps:
+    - script: |
+          pwd
+          docker build --no-cache -f Dockerfile -t $(ocir)/$(tenancy)/$(repo)/$(imageName) .
+      displayName: 'Building Docker Image'
+
+    - script: |
+          docker login https://$(ocir) -u $(dockerUser) -p "$(dockerPassword)"
+          docker push $(ocir)/$(tenancy)/$(repo)/$(imageName)
+      displayName: 'Sending Image to OCIR'
+
+    - script: |
+          pip install oci-cli
+      displayName: 'OCI CLI Installing'
+
+    - script: |
+          mkdir /home/vsts/.kube
+          
+          mkdir /home/vsts/.oci
+          cd /home/vsts/.oci
+          # Obtain your OCI User Private Key
+          # wget -O oci_api_key.pem https://----your_bucket_url-----/oci_api_key.pem
+          wget -O oci_api_key.pem https://----your_bucket_url-----/oci_api_key.pem
+          sudo chmod 600 /home/vsts/.oci/oci_api_key.pem
+          
+          echo '[DEFAULT]' > /home/vsts/.oci/config
+          echo 'user=ocid1.user.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' >> /home/vsts/.oci/config
+          echo 'fingerprint=a0:6c:fe:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx' >> /home/vsts/.oci/config
+          echo 'key_file=/home/vsts/.oci/oci_api_key.pem' >> /home/vsts/.oci/config
+          echo 'tenancy=ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' >> /home/vsts/.oci/config
+          echo 'region=us-ashburn-1' >> /home/vsts/.oci/config
+          chmod 600 /home/vsts/.oci/config
+      displayName: 'OCI CLI Configuration'
+
+    - script: |
+          oci resource-manager job create-apply-job --execution-plan-strategy AUTO_APPROVED --stack-id ocid1.ormstack.oc1.iad.amaaaaaaamaaaaaaamaaaaaaamaaaaaaamaaaaaaamaaaaaaamaaaaaaamaaaaaa
+      displayName: 'Weblogic Terraform Resource Manager'
+
+    - script: |
+          oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.iad.aaaaaaaaamaaaaaaamaaaaaaamaaaaaaamaaaaaaamaaaaaaamaaaaaaamaaaaaa --file /home/vsts/.kube/config --region us-ashburn-1 --token-version 2.0.0  --kube-endpoint PUBLIC_ENDPOINT
+          
+          export KUBECONFIG=/home/vsts/.kube/config
+          
+          cd /home/vsts/work/1/s
+          kubectl config view
+          kubectl get nodes
+          kubectl replace -f kubernetes.yaml --force
+          sleep 120
+          kubectl get services callpdfreport-service
+          kubectl get pods
+          kubectl describe pods
+      displayName: 'Deploying to OKE'
